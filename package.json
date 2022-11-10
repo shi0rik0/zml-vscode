@@ -1,0 +1,34 @@
+{
+  "name": "zen-markup-language",
+  "displayName": "Zen Markup Language",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "zml",
+        "aliases": [
+          "ZML",
+          "zml"
+        ],
+        "extensions": [
+          ".zml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "zml",
+        "scopeName": "source.zml",
+        "path": "./syntaxes/zml.tmLanguage.json"
+      }
+    ]
+  }
+}

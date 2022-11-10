@@ -1,0 +1,54 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ZML",
+	"patterns": [
+		{
+			"include": "#tag"
+		},
+		{
+			"include": "#value"
+		},
+		{
+			"include": "#comment"
+		}
+	],
+
+	"repository": {
+		"keyword": {
+			"name": "constant.character.zml",
+			"match": "true|false|null|empty_arr|emtpy_obj"
+		},
+		"number": {
+			"name": "constant.numeric.zml",
+			"match": "(0_*|[1-9][_0-9]*)(\\._*[0-9][_0-9]*)?"
+		},
+		"string": {
+			"name": "string.quoted.zml",
+			"match": "\"([^\\\\\\n\"]|\\\\\\\\|\\\\\"|\\\\n|\\\\b|\\\\t)*\"|`[^\\n`]*`"
+		},
+		"value": {
+			"patterns": [{ "include": "#keyword" }, { "include": "#number" }, {"include": "#string"}]
+		},
+		"identifier": {
+			"name": "support.type.property-name.zml",
+			"match": "[_a-zA-Z][_0-9a-zA-Z]*"
+		},
+		"tag": {
+			"begin": "</?",
+			"end": ">",
+			"beginCaptures": {
+			  "0": { "name": "punctuation.definition.tag.open.zml" }
+			},
+			"endCaptures": {
+			  "0": { "name": "punctuation.definition.tag.close.zml" }
+			},
+			"name": "tag.group",
+			"patterns": [{ "include": "#identifier" }]
+		},
+		"comment": {
+			"name": "comment.line.number-sign.zml",
+			"match": "\\#[^\\n]*\\n"
+		}
+	},
+	"scopeName": "source.zml"
+}
